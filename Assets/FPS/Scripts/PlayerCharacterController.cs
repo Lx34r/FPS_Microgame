@@ -110,7 +110,7 @@ public class PlayerCharacterController : MonoBehaviour
     Vector3 m_GroundNormal;
     Vector3 m_CharacterVelocity;
     Vector3 m_LatestImpactSpeed;
-    float m_LastTimeJumped = 0f;
+    public float m_LastTimeJumped = 0f;
     float m_CameraVerticalAngle = 0f;
     float m_footstepDistanceCounter;
     float m_TargetCharacterHeight;
@@ -118,8 +118,11 @@ public class PlayerCharacterController : MonoBehaviour
     const float k_JumpGroundingPreventionTime = 0.2f;
     const float k_GroundCheckDistanceInAir = 0.07f;
 
+    Jetpack jetpack;
+
     void Start()
     {
+        jetpack = GetComponent<Jetpack>();
         // fetch components on the same gameObject
         m_Controller = GetComponent<CharacterController>();
         DebugUtility.HandleErrorIfNullGetComponent<CharacterController, PlayerCharacterController>(m_Controller, this, gameObject);
@@ -254,7 +257,7 @@ public class PlayerCharacterController : MonoBehaviour
         }
 
         // character movement handling
-        bool isSprinting = m_InputHandler.GetSprintInputHeld();
+        bool isSprinting = m_InputHandler.GetSprintInputHeld() && !jetpack.isJetpackUnlocked;    
         {
             if (isSprinting)
             {

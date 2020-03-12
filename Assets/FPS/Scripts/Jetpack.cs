@@ -46,6 +46,8 @@ public class Jetpack : MonoBehaviour
 
     public UnityAction<bool> onUnlockJetpack;
 
+    public float jetUpSpeed=26f;
+
     void Start()
     {
         isJetpackUnlocked = isJetpackUnlockedAtStart;
@@ -128,6 +130,11 @@ public class Jetpack : MonoBehaviour
             if (audioSource.isPlaying)
                 audioSource.Stop();
         }
+        
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isJetpackUnlocked)
+        {
+            Jet();//喷射上升
+        }
     }
 
     public bool TryUnlock()
@@ -139,5 +146,15 @@ public class Jetpack : MonoBehaviour
         isJetpackUnlocked = true;
         m_LastTimeOfUse = Time.time;
         return true;
+    }
+    
+    public void Jet()
+    {
+        m_PlayerCharacterController.m_LastTimeJumped = Time.time;
+        //抵消向下的速度
+        var tempV = m_PlayerCharacterController.characterVelocity;
+        tempV.y = 0;
+        m_PlayerCharacterController.characterVelocity = tempV;
+        m_PlayerCharacterController.characterVelocity += Vector3.up * jetUpSpeed;
     }
 }
