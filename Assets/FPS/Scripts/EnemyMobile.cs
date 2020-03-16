@@ -103,7 +103,6 @@ public class EnemyMobile : MonoBehaviour
             case AIState.Follow:
                 m_EnemyController.SetNavDestination(m_EnemyController.knownDetectedTarget.transform.position);
                 m_EnemyController.OrientTowards(m_EnemyController.knownDetectedTarget.transform.position);
-                m_EnemyController.OrientWeaponsTowards(m_EnemyController.knownDetectedTarget.transform.position);
                 break;
             case AIState.Attack:
                 if (Vector3.Distance(m_EnemyController.knownDetectedTarget.transform.position, m_EnemyController.m_DetectionModule.detectionSourcePoint.position) 
@@ -116,7 +115,7 @@ public class EnemyMobile : MonoBehaviour
                     m_EnemyController.SetNavDestination(transform.position);
                 }
                 m_EnemyController.OrientTowards(m_EnemyController.knownDetectedTarget.transform.position);
-                m_EnemyController.TryAtack(m_EnemyController.knownDetectedTarget.transform.position);
+                m_EnemyController.TryAtack((m_EnemyController.knownDetectedTarget.transform.position - m_EnemyController.GetCurrentWeapon().weaponRoot.transform.position).normalized);
                 break;
         }
     }

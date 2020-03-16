@@ -12,8 +12,6 @@ public class DetectionModule : MonoBehaviour
     public float attackRange = 10f;
     [Tooltip("Time before an enemy abandons a known target that it can't see anymore")]
     public float knownTargetTimeout = 4f;
-    [Tooltip("Optional animator for OnShoot animations")]
-    public Animator animator;
 
     public UnityAction onDetectedTarget;
     public UnityAction onLostTarget;
@@ -23,20 +21,17 @@ public class DetectionModule : MonoBehaviour
     public bool isSeeingTarget { get; private set; }
     public bool hadKnownTarget { get; private set; }
 
-    protected float m_TimeLastSeenTarget = Mathf.NegativeInfinity;
+    float m_TimeLastSeenTarget = Mathf.NegativeInfinity;
 
     ActorsManager m_ActorsManager;
 
-    const string k_AnimAttackParameter = "Attack";
-    const string k_AnimOnDamagedParameter = "OnDamaged";
-
-    protected virtual void Start()
+    private void Start()
     {
         m_ActorsManager = FindObjectOfType<ActorsManager>();
-        DebugUtility.HandleErrorIfNullFindObject<ActorsManager, DetectionModule>(m_ActorsManager, this);
+        DebugUtility.HandleErrorIfNullFindObject<ActorsManager, EnemyController>(m_ActorsManager, this);
     }
 
-    public virtual void HandleTargetDetection(Actor actor, Collider[] selfColliders)
+    public void HandleTargetDetection(Actor actor, Collider[] selfColliders)
     {
         // Handle known target detection timeout
         if (knownDetectedTarget && !isSeeingTarget && (Time.time - m_TimeLastSeenTarget) > knownTargetTimeout)
@@ -89,53 +84,25 @@ public class DetectionModule : MonoBehaviour
 
         // Detection events
         if (!hadKnownTarget &&
-            knownDetectedTarget != null)
+            knownDetectedTarget != null &&
+            onDetectedTarget != null)
         {
-            OnDetect();
+            onDetectedTarget.Invoke();
         }
-
         if (hadKnownTarget &&
-            knownDetectedTarget == null)
+            knownDetectedTarget == null &&
+            onLostTarget != null)
         {
-            OnLostTarget();
+            onLostTarget.Invoke();
         }
 
         // Remember if we already knew a target (for next frame)
         hadKnownTarget = knownDetectedTarget != null;
     }
 
-    public virtual void OnLostTarget()
-    {
-        if (onLostTarget != null)
-        {
-            onLostTarget.Invoke();
-        }
-    }
-
-    public virtual void OnDetect()
-    {
-        if (onDetectedTarget != null)
-        {
-            onDetectedTarget.Invoke();
-        }
-    }
-
-    public virtual void OnDamaged(GameObject damageSource)
+    public void OnDamaged(GameObject damageSource)
     {
         m_TimeLastSeenTarget = Time.time;
         knownDetectedTarget = damageSource;
-
-        if (animator)
-        {
-            animator.SetTrigger(k_AnimOnDamagedParameter);
-        }
-    }
-
-    public virtual void OnAttack()
-    {
-        if (animator)
-        {
-            animator.SetTrigger(k_AnimAttackParameter);
-        }
     }
 }

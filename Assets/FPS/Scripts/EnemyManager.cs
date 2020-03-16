@@ -31,10 +31,7 @@ public class EnemyManager : MonoBehaviour
     {
         int enemiesRemainingNotification = numberOfEnemiesRemaining - 1;
 
-        if (onRemoveEnemy != null)
-        {
-            onRemoveEnemy.Invoke(enemyKilled, enemiesRemainingNotification);
-        }
+        onRemoveEnemy.Invoke(enemyKilled, enemiesRemainingNotification);
 
         // removes the enemy from the list, so that we can keep track of how many are left on the map
         enemies.Remove(enemyKilled);

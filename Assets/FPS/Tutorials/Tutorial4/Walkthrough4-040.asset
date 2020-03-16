@@ -32,12 +32,19 @@ MonoBehaviour:
         m_UnmaskedViews: []
     - m_Type: 0
       m_Summary: 
-      m_Text: "<b><size=14>Tutorial Completed</size></b>\n\nIn toolbar you can also
-        find <b>Rotate</b> and <b>Scale</b> tools that work in similar way to <b>Move</b>
-        tool.\n\nFeel free to add more enemies. <b>Check out the \u201CCustomize Your
-        Enemy\u201D Asset, linked at the bottom of the Tutorial window.</b>\n\n<b>Next</b>,
-        you will learn how to take your game and post a playable version on its own
-        web page that you can share with family and friends."
+      m_Text: '<b><size=14>Tutorial Completed</size></b>
+
+
+        In toolbar you can also find <b>Rotate</b> and <b>Scale</b> tools that work
+        in similar way to <b>Move</b> tool.
+
+
+        Feel free add more enemies. The more enemies, the more challenging your game
+        will be.
+
+
+        <b>Next</b>, you will learn how to take your game and post a playable version
+        on its own web page that you can share with family and friends.'
       m_TutorialButtonText: 
       m_Tutorial: {fileID: 0}
       m_Icons:

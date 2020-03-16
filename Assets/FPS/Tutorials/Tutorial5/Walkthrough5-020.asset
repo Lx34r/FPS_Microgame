@@ -92,8 +92,8 @@ MonoBehaviour:
         m_UnmaskedViews: []
     - m_Type: 1
       m_Summary: 3. Click <b>Build</b> Button
-      m_Text: Click on the Build button and <b>create</b> a folder where you want
-        to save your game file.
+      m_Text: Click on the Build button and select a folder where you want to save
+        your game file.
       m_TutorialButtonText: 
       m_Tutorial: {fileID: 0}
       m_Icons:

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public enum WeaponShootType
 {
@@ -40,36 +39,34 @@ public class WeaponController : MonoBehaviour
     public Transform weaponMuzzle;
 
     [Header("Shoot Parameters")]
-    [Tooltip("武器发射类型：手动、自动、充能")]
+    [Tooltip("The type of weapon wil affect how it shoots")]
     public WeaponShootType shootType;
-    [Tooltip("子弹prefab")]
+    [Tooltip("The projectile prefab")]
     public ProjectileBase projectilePrefab;
-    [Tooltip("连续开枪最短间隔时间")]
+    [Tooltip("Minimum duration between two shots")]
     public float delayBetweenShots = 0.5f;
-    [Tooltip("子弹射出随机扩散角度 (0 means no spread at all)")]
+    [Tooltip("Angle for the cone in which the bullets will be shot randomly (0 means no spread at all)")]
     public float bulletSpreadAngle = 0f;
-    [Tooltip("每次发射子弹数")]
+    [Tooltip("Amount of bullets per shot")]
     public int bulletsPerShot = 1;
-    [Tooltip("武器后坐力")]
+    [Tooltip("Force that will push back the weapon after each shot")]
     [Range(0f, 2f)]
     public float recoilForce = 1;
-    [Tooltip("瞄准变焦，倍镜")]
+    [Tooltip("Ratio of the default FOV that this weapon applies while aiming")]
     [Range(0f, 1f)]
     public float aimZoomRatio = 1f;
-    [Tooltip("瞄准时武器偏移")]
+    [Tooltip("Translation to apply to weapon arm when aiming with this weapon")]
     public Vector3 aimOffset;
 
     [Header("Ammo Parameters")]
-    [Tooltip("每秒填充弹药的速度")]
+    [Tooltip("Amount of ammo reloaded per second")]
     public float ammoReloadRate = 1f;
-    [Tooltip("停止开火0.5秒后开始恢复发射（换弹时间）")]
+    [Tooltip("Delay after the last shot before starting to reload")]
     public float ammoReloadDelay = 2f;
-    [Tooltip("最大弹药数")]
+    [Tooltip("Maximum amount of ammo in the gun")]
     public float maxAmmo = 8;
 
     [Header("Charging parameters (charging weapons only)")]
-    [Tooltip("Trigger a shot when maximum charge is reached")]
-    public bool automaticReleaseOnCharged;
     [Tooltip("Duration to reach maximum charge")]
     public float maxChargeDuration = 2f;
     [Tooltip("Initial ammo used when starting to charge")]
@@ -78,18 +75,12 @@ public class WeaponController : MonoBehaviour
     public float ammoUsageRateWhileCharging = 1f;
 
     [Header("Audio & Visual")]
-    [Tooltip("Optional weapon animator for OnShoot animations")]
-    public Animator weaponAnimator;
     [Tooltip("Prefab of the muzzle flash")]
     public GameObject muzzleFlashPrefab;
-    [Tooltip("Unparent the muzzle flash instance on spawn")]
-    public bool unparentMuzzleFlash;
     [Tooltip("sound played when shooting")]
     public AudioClip shootSFX;
     [Tooltip("Sound played when changing to this weapon")]
     public AudioClip changeWeaponSFX;
-
-    public UnityAction onShoot;
 
     float m_CurrentAmmo;
     float m_LastTimeShot = Mathf.NegativeInfinity;
@@ -107,8 +98,6 @@ public class WeaponController : MonoBehaviour
     public float GetAmmoNeededToShoot() => (shootType != WeaponShootType.Charge ? 1 : ammoUsedOnStartCharge) / maxAmmo;
 
     AudioSource m_ShootAudioSource;
-
-    const string k_AnimAttackParameter = "Attack";
 
     void Awake()
     {
@@ -173,16 +162,12 @@ public class WeaponController : MonoBehaviour
                 {
                     chargeAdded = chargeLeft;
                 }
-                else
-                {
-                    chargeAdded = (1f / maxChargeDuration) * Time.deltaTime;
-                }
-
+                chargeAdded = (1f / maxChargeDuration) * Time.deltaTime;
                 chargeAdded = Mathf.Clamp(chargeAdded, 0f, chargeLeft);
 
                 // See if we can actually add this charge
                 float ammoThisChargeWouldRequire = chargeAdded * ammoUsageRateWhileCharging;
-                if (ammoThisChargeWouldRequire <= m_CurrentAmmo)
+                //if (ammoThisChargeWouldRequire <= m_CurrentAmmo)
                 {
                     // Use ammo based on charge added
                     UseAmmo(ammoThisChargeWouldRequire);
@@ -235,8 +220,7 @@ public class WeaponController : MonoBehaviour
                 {
                     TryBeginCharge();
                 }
-                // Check if we released charge or if the weapon shoot autmatically when it's fully charged
-                if (inputUp || (automaticReleaseOnCharged && currentCharge >= 1f))
+                if (inputUp)
                 {
                     return TryReleaseCharge();
                 }
@@ -304,12 +288,6 @@ public class WeaponController : MonoBehaviour
         if (muzzleFlashPrefab != null)
         {
             GameObject muzzleFlashInstance = Instantiate(muzzleFlashPrefab, weaponMuzzle.position, weaponMuzzle.rotation, weaponMuzzle.transform);
-            // Unparent the muzzleFlashInstance
-            if (unparentMuzzleFlash)
-            {
-                muzzleFlashInstance.transform.SetParent(null);
-            }
-
             Destroy(muzzleFlashInstance, 2f);
         }
 
@@ -319,18 +297,6 @@ public class WeaponController : MonoBehaviour
         if (shootSFX)
         {
             m_ShootAudioSource.PlayOneShot(shootSFX);
-        }
-
-        // Trigger attack animation if there is any
-        if (weaponAnimator)
-        {
-            weaponAnimator.SetTrigger(k_AnimAttackParameter);
-        }
-
-        // Callback on shoot
-        if (onShoot != null)
-        {
-            onShoot();
         }
     }
 

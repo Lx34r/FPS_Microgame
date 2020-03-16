@@ -119,10 +119,9 @@ public class PlayerCharacterController : MonoBehaviour
     const float k_GroundCheckDistanceInAir = 0.07f;
 
     Jetpack jetpack;
-
+    
     void Start()
     {
-        jetpack = GetComponent<Jetpack>();
         // fetch components on the same gameObject
         m_Controller = GetComponent<CharacterController>();
         DebugUtility.HandleErrorIfNullGetComponent<CharacterController, PlayerCharacterController>(m_Controller, this, gameObject);
@@ -146,6 +145,9 @@ public class PlayerCharacterController : MonoBehaviour
         // force the crouch state to false when starting
         SetCrouchingState(false, true);
         UpdateCharacterHeight(true);
+        
+        jetpack = GetComponent<Jetpack>();
+
     }
 
     void Update()
@@ -257,7 +259,7 @@ public class PlayerCharacterController : MonoBehaviour
         }
 
         // character movement handling
-        bool isSprinting = m_InputHandler.GetSprintInputHeld() && !jetpack.isJetpackUnlocked;    
+        bool isSprinting = m_InputHandler.GetSprintInputHeld() && !jetpack.isJetpackUnlocked;
         {
             if (isSprinting)
             {

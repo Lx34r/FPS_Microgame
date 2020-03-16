@@ -27,7 +27,7 @@ public class WeaponFuelCellHandler : MonoBehaviour
 
     void Update()
     {
-        // TODO: needs simplification
+        // TODO: 需要优化（简化）
         for (int i = 0; i < fuelCells.Length; i++)
         {
             float length = fuelCells.Length;

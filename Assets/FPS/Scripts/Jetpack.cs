@@ -19,14 +19,16 @@ public class Jetpack : MonoBehaviour
     [Tooltip("This will affect how much using the jetpack will cancel the gravity value, to start going up faster. 0 is not at all, 1 is instant")]
     public float jetpackDownwardVelocityCancelingFactor = 1f;
 
+    public float jetUpSpeed=26f;
+    
     [Header("Durations")]
-    [Tooltip("Time it takes to consume all the jetpack fuel")]
+    [Tooltip("如果一直按着空格键，喷气背包可持续使用秒数(可以理解为燃料值)")]
     public float consumeDuration = 1.5f;
-    [Tooltip("Time it takes to completely refill the jetpack while on the ground")]
+    [Tooltip("在地面完全填充燃料值所需的秒数(值越小，填充速度越快)")]
     public float refillDurationGrounded = 2f;
-    [Tooltip("Time it takes to completely refill the jetpack while in the air")]
+    [Tooltip("在空中完全填充燃料值所需的秒数(值越小，填充速度越快)")]
     public float refillDurationInTheAir = 5f;
-    [Tooltip("Delay after last use before starting to refill")]
+    [Tooltip("停用悬浮（放开空格键）多久后开始填充燃料")]
     public float refillDelay = 1f;
 
     [Header("Audio")]
@@ -45,8 +47,6 @@ public class Jetpack : MonoBehaviour
     public bool isPlayergrounded() => m_PlayerCharacterController.isGrounded;
 
     public UnityAction<bool> onUnlockJetpack;
-
-    public float jetUpSpeed=26f;
 
     void Start()
     {
@@ -131,6 +131,7 @@ public class Jetpack : MonoBehaviour
                 audioSource.Stop();
         }
         
+        //当按下左Shift键的时候，执行喷射方法Jet()
         if (Input.GetKeyDown(KeyCode.LeftShift) && isJetpackUnlocked)
         {
             Jet();//喷射上升
@@ -148,6 +149,7 @@ public class Jetpack : MonoBehaviour
         return true;
     }
     
+    //喷射时修改角色竖直向上的速度(characterVelocity的Y方向的值)，并且刷新m_LastTimeJumped，免去起飞时的地面检测，否则会被往地上吸。
     public void Jet()
     {
         m_PlayerCharacterController.m_LastTimeJumped = Time.time;

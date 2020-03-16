@@ -3,13 +3,13 @@ using UnityEngine.Events;
 
 public class Objective : MonoBehaviour
 {
-    [Tooltip("Name of the objective that will be shown on screen")]
+    [Tooltip("Short text explaining the objective that will be shown on screen")]
     public string title;
     [Tooltip("Short text explaining the objective that will be shown on screen")]
     public string description;
     [Tooltip("Whether the objective is required to win or not")]
     public bool isOptional;
-    [Tooltip("Delay before the objective becomes visible")]
+    [Tooltip("Delay before theobjective becomes visible")]
     public float delayVisible;
 
     public bool isCompleted { get; private set; }

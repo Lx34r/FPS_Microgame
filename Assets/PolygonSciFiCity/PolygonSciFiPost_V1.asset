@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
   m_Name: PolygonSciFiPost_V1
   m_EditorClassIdentifier: 
-  m_Name: PolygonSciFiPost_V1
-  m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
     m_Settings:
@@ -108,9 +106,8 @@ MonoBehaviour:
         softKnee: 0.5
         radius: 4
         antiFlicker: 0
-      lensDirt:
-        texture: {fileID: 2800000, guid: a2960ffde020f27409e070d92fb2e00b, type: 3}
-        intensity: 6.6
+      lensDirt: {texture: {fileID: 2800000, guid: a2960ffde020f27409e070d92fb2e00b,
+          type: 3}, intensity: 6.6}
   colorGrading:
     m_Enabled: 1
     m_Settings:
@@ -288,14 +285,10 @@ MonoBehaviour:
         e_CurveB: 0
   userLut:
     m_Enabled: 0
-    m_Settings:
-      lut: {fileID: 0}
-      contribution: 1
+    m_Settings: {lut: {fileID: 0}, contribution: 1}
   chromaticAberration:
     m_Enabled: 0
-    m_Settings:
-      spectralTexture: {fileID: 0}
-      intensity: 0.1
+    m_Settings: {spectralTexture: {fileID: 0}, intensity: 0.1}
   grain:
     m_Enabled: 0
     m_Settings:

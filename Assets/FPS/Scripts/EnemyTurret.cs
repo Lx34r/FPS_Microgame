@@ -82,9 +82,7 @@ public class EnemyTurret : MonoBehaviour
                 // shoot
                 if (mustShoot)
                 {
-                    Vector3 correctedDirectionToTarget = (m_PivotAimingRotation * Quaternion.Inverse(m_RotationWeaponForwardToPivot)) * Vector3.forward;
-
-                    m_EnemyController.TryAtack(turretAimPoint.position + correctedDirectionToTarget);
+                    m_EnemyController.TryAtack((m_PivotAimingRotation * Quaternion.Inverse(m_RotationWeaponForwardToPivot)) * Vector3.forward);
                 }
 
                 break;

@@ -29,13 +29,6 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Delay after death where the GameObject is destroyed (to allow for animation)")]
     public float deathDuration = 0f;
 
-
-    [Header("Weapons Parameters")]
-    [Tooltip("Allow weapon swapping for this enemy")]
-    public bool swapToNextWeapon = false;
-    [Tooltip("Time delay between a weapon swap and the next attack")]
-    public float delayAfterWeaponSwap = 0f;
-
     [Header("Eye color")]
     [Tooltip("Material for the eye color")]
     public Material eyeColorMaterial;
@@ -109,8 +102,6 @@ public class EnemyController : MonoBehaviour
     Collider[] m_SelfColliders;
     GameFlowManager m_GameFlowManager;
     bool m_WasDamagedThisFrame;
-    float m_LastTimeWeaponSwapped = Mathf.NegativeInfinity;
-    int m_CurrentWeaponIndex;
     WeaponController m_CurrentWeapon;
     WeaponController[] m_Weapons;
     NavigationModule m_NavigationModule;
@@ -143,8 +134,6 @@ public class EnemyController : MonoBehaviour
 
         // Find and initialize all weapons
         FindAndInitializeAllWeapons();
-        var weapon = GetCurrentWeapon();
-        weapon.ShowWeapon(true);
 
         var detectionModules = GetComponentsInChildren<DetectionModule>();
         DebugUtility.HandleErrorIfNoComponentFound<DetectionModule, EnemyController>(detectionModules.Length, this, gameObject);
@@ -153,7 +142,6 @@ public class EnemyController : MonoBehaviour
         m_DetectionModule = detectionModules[0];
         m_DetectionModule.onDetectedTarget += OnDetectedTarget;
         m_DetectionModule.onLostTarget += OnLostTarget;
-        onAttack += m_DetectionModule.OnAttack;
 
         var navigationModules = GetComponentsInChildren<NavigationModule>();
         DebugUtility.HandleWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length, this, gameObject);
@@ -385,25 +373,13 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void OrientWeaponsTowards(Vector3 lookPosition)
-    {
-        for (int i = 0; i < m_Weapons.Length; i++)
-        {
-            // orient weapon towards player
-            Vector3 weaponForward = (lookPosition - m_Weapons[i].weaponRoot.transform.position).normalized;
-            m_Weapons[i].transform.forward = weaponForward;
-        }
-    }
-
-    public bool TryAtack(Vector3 enemyPosition)
+    public bool TryAtack(Vector3 weaponForward)
     {
         if (m_GameFlowManager.gameIsEnding)
             return false;
 
-        OrientWeaponsTowards(enemyPosition);
-
-        if ((m_LastTimeWeaponSwapped + delayAfterWeaponSwap) >= Time.time)
-            return false;
+        // point weapon towards player
+        GetCurrentWeapon().transform.forward = weaponForward;
 
         // Shoot the weapon
         bool didFire = GetCurrentWeapon().HandleShootInputs(false, true, false);
@@ -411,12 +387,6 @@ public class EnemyController : MonoBehaviour
         if (didFire && onAttack != null)
         {
             onAttack.Invoke();
-
-            if (swapToNextWeapon && m_Weapons.Length > 1)
-            {
-                int nextWeaponIndex = (m_CurrentWeaponIndex + 1) % m_Weapons.Length;
-                SetCurrentWeapon(nextWeaponIndex);
-            }
         }
 
         return didFire;
@@ -454,24 +424,10 @@ public class EnemyController : MonoBehaviour
         if (m_CurrentWeapon == null)
         {
             // Set the first weapon of the weapons list as the current weapon
-            SetCurrentWeapon(0);
+            m_CurrentWeapon = m_Weapons[0];
         }
         DebugUtility.HandleErrorIfNullGetComponent<WeaponController, EnemyController>(m_CurrentWeapon, this, gameObject);
 
         return m_CurrentWeapon;
-    }
-
-    void SetCurrentWeapon(int index)
-    {
-        m_CurrentWeaponIndex = index;
-        m_CurrentWeapon = m_Weapons[m_CurrentWeaponIndex];
-        if (swapToNextWeapon)
-        {
-            m_LastTimeWeaponSwapped = Time.time;
-        }
-        else
-        {
-            m_LastTimeWeaponSwapped = Mathf.NegativeInfinity;
-        }
     }
 }
