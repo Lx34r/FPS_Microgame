@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7635524C-0843-DE68-DD6E-5610A0AF9844}</ProjectGuid>
+    <ProjectGuid>{7EA30ADD-CD28-B6EC-F15F-09B1EE017114}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>NavMeshComponents</AssemblyName>
@@ -64,10 +64,10 @@
      <Compile Include="Assets\FPS\Scripts\NavMeshComponents\Scripts\NavMeshSurface.cs" />
      <None Include="Assets\FPS\Scripts\NavMeshComponents\Scripts\NavMeshComponents.asmdef" />
  <Reference Include="UnityEditor.UI">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/Unity/Unity 2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -254,9 +254,6 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>D:/Unity/Unity 2019.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="System.IO.Compression.FileSystem">
- <HintPath>E:/FPS Microgame/Library/PackageCache/com.unity.connect.share@1.0.9-preview/Plugins/System.IO.Compression.FileSystem.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>D:/Unity/Unity 2019.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{605AAB31-8618-4B2F-05DC-530C971113B4}</ProjectGuid>
+    <ProjectGuid>{CC4C4F1F-A716-57A2-FC1C-D4A4340E78D3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -135,102 +135,60 @@
      <Compile Include="Assets\FPS\Scripts\WeaponController.cs" />
      <Compile Include="Assets\FPS\Scripts\WeaponFuelCellHandler.cs" />
      <Compile Include="Assets\FPS\Scripts\WeaponPickup.cs" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne_License.txt" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-     <None Include="Assets\FPS\README.txt" />
-     <None Include="Assets\PolygonSciFiCity\_Shaders\Polygon_Triplanar.shader" />
-     <None Include="Assets\FPS\Prefabs\PBObjects\_ReadMe_PBObjects.txt" />
-     <None Include="Assets\FPS\Art\Fonts\ApacheLicense2.0.txt" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-     <None Include="Assets\FPS\Art\Shaders\ProjectorMultiply.shader" />
-     <None Include="Assets\FPS\Prefabs\RootObjects\_ReadMe_RootObjects.txt" />
-     <None Include="Assets\FPS\Prefabs\Level\BaseObjects\_ReadMe_BaseObjects.txt" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\PolygonSciFiCity\_Shaders\Polygon_UVScroll.shader" />
-     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <None Include="Assets\FPS\Third-PartyNotice.txt" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+     <None Include="Assets\FPS\Prefabs\Level\BaseObjects\_ReadMe_BaseObjects.txt" />
+     <None Include="Assets\FPS\Prefabs\RootObjects\_ReadMe_RootObjects.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\FPS\Third-PartyNotice.txt" />
+     <None Include="Assets\FPS\Art\Shaders\ProjectorMultiply.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\FPS\README.txt" />
+     <None Include="Assets\FPS\Prefabs\PBObjects\_ReadMe_PBObjects.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\FPS\Art\Fonts\ApacheLicense2.0.txt" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne_License.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\PolygonSciFiCity\_Shaders\Polygon_UVScroll.shader" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\PolygonSciFiCity\_Shaders\Polygon_Triplanar.shader" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProGrids">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProBuilder">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
- </Reference>
- <Reference Include="Unity.UIWidgets.Editor">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.UIWidgets.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Connect.Share.Editor">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.Connect.Share.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InteractiveTutorials.Core">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.InteractiveTutorials.Core.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEditorBridgeDev.001">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.InternalAPIEditorBridgeDev.001.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProBuilder.Editor">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProGrids.Editor">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.UIWidgets">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.UIWidgets.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InteractiveTutorials.Core.Scripts">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.InteractiveTutorials.Core.Scripts.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.InteractiveTutorialsFramework">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/UnityEditor.InteractiveTutorialsFramework.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProBuilder.AddOns.Editor">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEngineBridge.024">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.024.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/Unity/Unity 2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -408,9 +366,6 @@
  </Reference>
  <Reference Include="UnityEngine.XRModule">
  <HintPath>D:/Unity/Unity 2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
- </Reference>
- <Reference Include="System.IO.Compression.FileSystem">
- <HintPath>E:/FPS Microgame/Library/PackageCache/com.unity.connect.share@1.0.9-preview/Plugins/System.IO.Compression.FileSystem.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>D:/Unity/Unity 2019.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -768,13 +723,13 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NavMeshComponentsEditor.csproj">
-      <Project>{E8D93D86-56DF-BAB0-EABC-E13692707BCB}</Project>
-      <Name>NavMeshComponentsEditor</Name>
-    </ProjectReference>
     <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{7635524C-0843-DE68-DD6E-5610A0AF9844}</Project>
+      <Project>{7EA30ADD-CD28-B6EC-F15F-09B1EE017114}</Project>
       <Name>NavMeshComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{021D344B-4333-2409-D480-32C7D11A81C3}</Project>
+      <Name>NavMeshComponentsEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

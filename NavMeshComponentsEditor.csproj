@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E8D93D86-56DF-BAB0-EABC-E13692707BCB}</ProjectGuid>
+    <ProjectGuid>{021D344B-4333-2409-D480-32C7D11A81C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>NavMeshComponentsEditor</AssemblyName>
@@ -66,16 +66,16 @@
      <Compile Include="Assets\FPS\Scripts\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
      <None Include="Assets\FPS\Scripts\NavMeshComponents\Editor\NavMeshComponentsEditor.asmdef" />
  <Reference Include="UnityEditor.UI">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>E:/FPS Microgame/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/Unity/Unity 2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -263,11 +263,8 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>D:/Unity/Unity 2019.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="System.IO.Compression.FileSystem">
- <HintPath>E:/FPS Microgame/Library/PackageCache/com.unity.connect.share@1.0.9-preview/Plugins/System.IO.Compression.FileSystem.dll</HintPath>
- </Reference>
  <Reference Include="nunit.framework">
- <HintPath>E:/FPS Microgame/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>E:/FPS_Microgame/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>D:/Unity/Unity 2019.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -626,7 +623,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{7635524C-0843-DE68-DD6E-5610A0AF9844}</Project>
+      <Project>{7EA30ADD-CD28-B6EC-F15F-09B1EE017114}</Project>
       <Name>NavMeshComponents</Name>
     </ProjectReference>
   </ItemGroup>
