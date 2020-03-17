@@ -1,3 +1,3 @@
 # FPS_Microgame
 
-m_EditorVersion: 2019.3.4f1
+EditorVersion: 2019.3.0 and later
