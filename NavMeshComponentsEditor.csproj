@@ -64,7 +64,6 @@
      <Compile Include="Assets\FPS\Scripts\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
      <Compile Include="Assets\FPS\Scripts\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs" />
      <Compile Include="Assets\FPS\Scripts\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
-     <None Include="Assets\FPS\Scripts\NavMeshComponents\Editor\NavMeshComponentsEditor.asmdef" />
  <Reference Include="UnityEditor.UI">
  <HintPath>E:/FPS_Microgame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -263,20 +262,8 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>D:/Unity/Unity 2019.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="GitHub.Api.45">
- <HintPath>E:/FPS_Microgame/Assets/Plugins/GitHub/Editor/GitHub.Api.45.dll</HintPath>
- </Reference>
- <Reference Include="GitHub.Unity.45">
- <HintPath>E:/FPS_Microgame/Assets/Plugins/GitHub/Editor/GitHub.Unity.45.dll</HintPath>
- </Reference>
- <Reference Include="sfw.net">
- <HintPath>E:/FPS_Microgame/Assets/Plugins/GitHub/Editor/sfw.net.dll</HintPath>
- </Reference>
- <Reference Include="GitHub.UnityShim">
- <HintPath>E:/FPS_Microgame/Assets/Plugins/GitHub/Editor/GitHub.UnityShim.dll</HintPath>
- </Reference>
- <Reference Include="GitHub.Logging">
- <HintPath>E:/FPS_Microgame/Assets/Plugins/GitHub/Editor/GitHub.Logging.dll</HintPath>
+ <Reference Include="System.IO.Compression.FileSystem">
+ <HintPath>E:/FPS_Microgame/Library/PackageCache/com.unity.connect.share@1.0.9-preview/Plugins/System.IO.Compression.FileSystem.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>E:/FPS_Microgame/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
