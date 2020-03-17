@@ -135,9 +135,10 @@ Camera:
   m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -414,6 +415,7 @@ MonoBehaviour:
   maxSpeedForFallDamage: 40
   fallDamageAtMinSpeed: 10
   fallDamageAtMaxSpeed: 30
+  m_LastTimeJumped: 0
 --- !u!114 &1360575517897679518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,6 +487,7 @@ MonoBehaviour:
   refillDurationInTheAir: 5
   refillDelay: 1
   jetpackSFX: {fileID: 8300000, guid: 01a15bd1861d7914abbedc36aad1f4d6, type: 3}
+  jetUpSpeed: 26
 --- !u!143 &3122855503829242450
 CharacterController:
   m_ObjectHideFlags: 0
@@ -801,9 +804,10 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2

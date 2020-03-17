@@ -38,16 +38,16 @@ public class WeaponController : MonoBehaviour
     [Tooltip("Tip of the weapon, where the projectiles are shot")]
     public Transform weaponMuzzle;
 
-    [Header("Shoot Parameters")]
+    [Header("射击参数")]
     [Tooltip("The type of weapon wil affect how it shoots")]
     public WeaponShootType shootType;
     [Tooltip("The projectile prefab")]
     public ProjectileBase projectilePrefab;
-    [Tooltip("Minimum duration between two shots")]
+    [Tooltip("射击间隔")]
     public float delayBetweenShots = 0.5f;
-    [Tooltip("Angle for the cone in which the bullets will be shot randomly (0 means no spread at all)")]
+    [Tooltip("子弹扩散角度")]
     public float bulletSpreadAngle = 0f;
-    [Tooltip("Amount of bullets per shot")]
+    [Tooltip("每次发射子弹数")]
     public int bulletsPerShot = 1;
     [Tooltip("Force that will push back the weapon after each shot")]
     [Range(0f, 2f)]
@@ -58,12 +58,12 @@ public class WeaponController : MonoBehaviour
     [Tooltip("Translation to apply to weapon arm when aiming with this weapon")]
     public Vector3 aimOffset;
 
-    [Header("Ammo Parameters")]
-    [Tooltip("Amount of ammo reloaded per second")]
+    [Header("弹药参数")]
+    [Tooltip("每秒填充弹药的速度")]
     public float ammoReloadRate = 1f;
-    [Tooltip("Delay after the last shot before starting to reload")]
+    [Tooltip("停止开火x秒后开始恢复发射次数（换弹")]
     public float ammoReloadDelay = 2f;
-    [Tooltip("Maximum amount of ammo in the gun")]
+    [Tooltip("最大弹药数")]
     public float maxAmmo = 8;
 
     [Header("Charging parameters (charging weapons only)")]

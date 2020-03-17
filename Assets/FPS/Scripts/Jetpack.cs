@@ -46,6 +46,9 @@ public class Jetpack : MonoBehaviour
 
     public UnityAction<bool> onUnlockJetpack;
 
+    [Tooltip("喷射速度")]
+    public float jetUpSpeed=26f;
+
     void Start()
     {
         isJetpackUnlocked = isJetpackUnlockedAtStart;
@@ -65,7 +68,7 @@ public class Jetpack : MonoBehaviour
     void Update()
     {
         // jetpack can only be used if not grounded and jump has been pressed again once in-air
-        if(isPlayergrounded())
+        if (isPlayergrounded())
         {
             m_CanUseJetpack = false;
         }
@@ -75,8 +78,9 @@ public class Jetpack : MonoBehaviour
         }
 
         // jetpack usage
-        bool jetpackIsInUse = m_CanUseJetpack && isJetpackUnlocked  && currentFillRatio > 0f && m_InputHandler.GetJumpInputHeld();
-        if(jetpackIsInUse)
+        bool jetpackIsInUse = m_CanUseJetpack && isJetpackUnlocked && currentFillRatio > 0f &&
+                              m_InputHandler.GetJumpInputHeld();
+        if (jetpackIsInUse)
         {
             // store the last time of use for refill delay
             m_LastTimeOfUse = Time.time;
@@ -89,7 +93,8 @@ public class Jetpack : MonoBehaviour
             if (m_PlayerCharacterController.characterVelocity.y < 0f)
             {
                 // handle making the jetpack compensate for character's downward velocity with bonus acceleration
-                totalAcceleration += ((-m_PlayerCharacterController.characterVelocity.y / Time.deltaTime) * jetpackDownwardVelocityCancelingFactor);
+                totalAcceleration += ((-m_PlayerCharacterController.characterVelocity.y / Time.deltaTime) *
+                                      jetpackDownwardVelocityCancelingFactor);
             }
 
             // apply the acceleration to character's velocity
@@ -112,7 +117,9 @@ public class Jetpack : MonoBehaviour
             // refill the meter over time
             if (isJetpackUnlocked && Time.time - m_LastTimeOfUse >= refillDelay)
             {
-                float refillRate = 1 / (m_PlayerCharacterController.isGrounded ? refillDurationGrounded : refillDurationInTheAir);
+                float refillRate = 1 / (m_PlayerCharacterController.isGrounded
+                    ? refillDurationGrounded
+                    : refillDurationInTheAir);
                 currentFillRatio = currentFillRatio + Time.deltaTime * refillRate;
             }
 
@@ -128,6 +135,12 @@ public class Jetpack : MonoBehaviour
             if (audioSource.isPlaying)
                 audioSource.Stop();
         }
+
+        //当按下左Shift键的时候，执行喷射方法JetRise()
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isJetpackUnlocked)
+        {
+            JetRise(); //喷射上升
+        }
     }
 
     public bool TryUnlock()
@@ -139,5 +152,15 @@ public class Jetpack : MonoBehaviour
         isJetpackUnlocked = true;
         m_LastTimeOfUse = Time.time;
         return true;
+    }
+    
+    public void JetRise()
+    {
+        m_PlayerCharacterController.m_LastTimeJumped = Time.time;
+        //抵消向下的速度
+        var tempV = m_PlayerCharacterController.characterVelocity;
+        tempV.y = 0;
+        m_PlayerCharacterController.characterVelocity = tempV;
+        m_PlayerCharacterController.characterVelocity += Vector3.up * jetUpSpeed;
     }
 }

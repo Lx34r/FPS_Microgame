@@ -110,13 +110,15 @@ public class PlayerCharacterController : MonoBehaviour
     Vector3 m_GroundNormal;
     Vector3 m_CharacterVelocity;
     Vector3 m_LatestImpactSpeed;
-    float m_LastTimeJumped = 0f;
+    public float m_LastTimeJumped = 0f;
     float m_CameraVerticalAngle = 0f;
     float m_footstepDistanceCounter;
     float m_TargetCharacterHeight;
 
     const float k_JumpGroundingPreventionTime = 0.2f;
     const float k_GroundCheckDistanceInAir = 0.07f;
+
+    Jetpack jetpack;
 
     void Start()
     {
@@ -143,6 +145,9 @@ public class PlayerCharacterController : MonoBehaviour
         // force the crouch state to false when starting
         SetCrouchingState(false, true);
         UpdateCharacterHeight(true);
+
+        jetpack = GetComponent<Jetpack>();
+
     }
 
     void Update()
@@ -253,8 +258,8 @@ public class PlayerCharacterController : MonoBehaviour
             playerCamera.transform.localEulerAngles = new Vector3(m_CameraVerticalAngle, 0, 0);
         }
 
-        // character movement handling
-        bool isSprinting = m_InputHandler.GetSprintInputHeld();
+        // 角色移动处理
+        bool isSprinting = m_InputHandler.GetSprintInputHeld() && !jetpack.isJetpackUnlocked;
         {
             if (isSprinting)
             {

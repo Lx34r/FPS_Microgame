@@ -5,43 +5,43 @@ using UnityEngine;
 public class ProjectileStandard : MonoBehaviour
 {
     [Header("General")]
-    [Tooltip("Radius of this projectile's collision detection")]
+    [Tooltip("子弹碰撞检测半径")]
     public float radius = 0.01f;
-    [Tooltip("Transform representing the root of the projectile (used for accurate collision detection)")]
+    [Tooltip("子弹底端（用于精确碰撞检测）")]
     public Transform root;
-    [Tooltip("Transform representing the tip of the projectile (used for accurate collision detection)")]
+    [Tooltip("子弹顶端（用于精确碰撞检测）")]
     public Transform tip;
-    [Tooltip("LifeTime of the projectile")]
+    [Tooltip("子弹生命周期")]
     public float maxLifeTime = 5f;
-    [Tooltip("VFX prefab to spawn upon impact")]
+    [Tooltip("子弹爆炸特效")]
     public GameObject impactVFX;
-    [Tooltip("LifeTime of the VFX before being destroyed")]
+    [Tooltip("爆炸特效持续时间")]
     public float impactVFXLifetime = 5f;
-    [Tooltip("Offset along the hit normal where the VFX will be spawned")]
+    [Tooltip("爆炸特效生成位置偏移")]
     public float impactVFXSpawnOffset = 0.1f;
-    [Tooltip("Clip to play on impact")]
+    [Tooltip("爆炸声效")]
     public AudioClip impactSFXClip;
-    [Tooltip("Layers this projectile can collide with")]
+    [Tooltip("子弹可以碰撞的Layers")]
     public LayerMask hittableLayers = -1;
 
     [Header("Movement")]
-    [Tooltip("Speed of the projectile")]
+    [Tooltip("子弹速度")]
     public float speed = 20f;
-    [Tooltip("Downward acceleration from gravity")]
+    [Tooltip("重力向下加速度(子弹下坠)")]
     public float gravityDownAcceleration = 0f;
-    [Tooltip("Distance over which the projectile will correct its course to fit the intended trajectory (used to drift projectiles towards center of screen in First Person view). At values under 0, there is no correction")]
+    [Tooltip("修正子弹轨迹以符合预定弹道(用于第一人称中修正子弹向屏幕中心偏移)，小于0不生效")]
     public float trajectoryCorrectionDistance = -1;
-    [Tooltip("Determines if the projectile inherits the velocity that the weapon's muzzle had when firing")]
+    [Tooltip("子弹是否继承开枪时枪口初速度")]
     public bool inheritWeaponVelocity = false;
 
     [Header("Damage")]
-    [Tooltip("Damage of the projectile")]
+    [Tooltip("子弹伤害")]
     public float damage = 40f;
-    [Tooltip("Area of damage. Keep empty if you don<t want area damage")]
+    [Tooltip("范围性伤害（None则命中后不会造成范围性伤害）")]
     public DamageArea areaOfDamage;
 
     [Header("Debug")]
-    [Tooltip("Color of the projectile radius debug view")]
+    [Tooltip("debug时子弹半径颜色")]
     public Color radiusColor = Color.cyan * 0.2f;
 
     ProjectileBase m_ProjectileBase;

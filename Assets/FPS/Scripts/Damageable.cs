@@ -2,17 +2,17 @@
 
 public class Damageable : MonoBehaviour
 {
-    [Tooltip("Multiplier to apply to the received damage")]
+    [Tooltip("伤害倍数")]
     public float damageMultiplier = 1f;
     [Range(0, 1)]
-    [Tooltip("Multiplier to apply to self damage")]
+    [Tooltip("自伤倍数（自己误伤）")]
     public float sensibilityToSelfdamage = 0.5f;
 
     public Health health { get; private set; }
 
     void Awake()
     {
-        // find the health component either at the same level, or higher in the hierarchy
+        // 在hierarchy中获取health组件（没找到就往上层找）
         health = GetComponent<Health>();
         if (!health)
         {
@@ -27,19 +27,18 @@ public class Damageable : MonoBehaviour
         {
             var totalDamage = damage;
 
-            // skip the crit multiplier if it's from an explosion
+            // 爆炸跳过伤害倍数
             if (!isExplosionDamage)
             {
                 totalDamage *= damageMultiplier;
             }
 
-            // potentially reduce damages if inflicted by self
+            // 自伤时应用自伤倍数
             if (health.gameObject == damageSource)
             {
                 totalDamage *= sensibilityToSelfdamage;
             }
 
-            // apply the damages
             health.TakeDamage(totalDamage, damageSource);
         }
     }

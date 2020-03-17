@@ -3,11 +3,11 @@
 [RequireComponent(typeof(WeaponController))]
 public class WeaponFuelCellHandler : MonoBehaviour
 {
-    [Tooltip("List of GameObjects representing the fuel cells on the weapon")]
+    [Tooltip("武器燃料电池（子弹数）")]
     public GameObject[] fuelCells;
-    [Tooltip("Cell local position when used")]
+    [Tooltip("使用完电池位置（表现为弹出电池冷却）")]
     public Vector3 fuelCellUsedPosition;
-    [Tooltip("Cell local position before use")]
+    [Tooltip("使用前电池位置")]
     public Vector3 fuelCellUnusedPosition = new Vector3(0f, -0.1f, 0f);
 
     WeaponController m_Weapon;
