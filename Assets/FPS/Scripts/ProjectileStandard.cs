@@ -7,9 +7,9 @@ public class ProjectileStandard : MonoBehaviour
     [Header("General")]
     [Tooltip("子弹碰撞检测半径")]
     public float radius = 0.01f;
-    [Tooltip("子弹底端（用于精确碰撞检测）")]
+    [Tooltip("子弹root（用于精确碰撞检测）")]
     public Transform root;
-    [Tooltip("子弹顶端（用于精确碰撞检测）")]
+    [Tooltip("子弹tip（用于精确碰撞检测）")]
     public Transform tip;
     [Tooltip("子弹生命周期")]
     public float maxLifeTime = 5f;

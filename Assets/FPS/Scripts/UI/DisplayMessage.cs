@@ -2,12 +2,12 @@
 
 public class DisplayMessage : MonoBehaviour
 {
-    [Tooltip("The text that will be displayed")]
+    [Tooltip("消息内容")]
     [TextArea]
     public string message;
-    [Tooltip("Prefab for the message")]
+    [Tooltip("显示消息的Prefab")]
     public GameObject messagePrefab;
-    [Tooltip("Delay before displaying the message")]
+    [Tooltip("显示消息前延迟")]
     public float delayBeforeShowing;
 
     float m_InitTime = float.NegativeInfinity;

@@ -104,7 +104,7 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     private void Update()
     {
-        // shoot handling
+        // 射击处理    
         WeaponController activeWeapon = GetActiveWeapon();
 
         if (activeWeapon && m_WeaponSwitchState == WeaponSwitchState.Up)

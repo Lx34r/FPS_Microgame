@@ -6,15 +6,15 @@ public enum WeaponShootType
     Automatic,
     Charge,
 }
-
+//序列化存储CrosshairData信息，否则无法显示在inspector上
 [System.Serializable]
 public struct CrosshairData
 {
-    [Tooltip("The image that will be used for this weapon's crosshair")]
+    [Tooltip("武器准星资源")]
     public Sprite crosshairSprite;
-    [Tooltip("The size of the crosshair image")]
+    [Tooltip("准星大小")]
     public int crosshairSize;
-    [Tooltip("The color of the crosshair image")]
+    [Tooltip("准星颜色")]
     public Color crosshairColor;
 }
 
@@ -22,26 +22,26 @@ public struct CrosshairData
 public class WeaponController : MonoBehaviour
 {
     [Header("Information")]
-    [Tooltip("The name that will be displayed in the UI for this weapon")]
+    [Tooltip("武器名，用于UI界面")]
     public string weaponName;
-    [Tooltip("The image that will be displayed in the UI for this weapon")]
+    [Tooltip("武器图标，用于UI界面")]
     public Sprite weaponIcon;
 
-    [Tooltip("Default data for the crosshair")]
+    [Tooltip("默认武器准星信息")]
     public CrosshairData crosshairDataDefault;
-    [Tooltip("Data for the crosshair when targeting an enemy")]
+    [Tooltip("瞄准时武器准星信息")]
     public CrosshairData crosshairDataTargetInSight;
 
     [Header("Internal References")]
-    [Tooltip("The root object for the weapon, this is what will be deactivated when the weapon isn't active")]
+    [Tooltip("武器root，不使用武器时停用该object")]
     public GameObject weaponRoot;
-    [Tooltip("Tip of the weapon, where the projectiles are shot")]
+    [Tooltip("武器枪口，子弹发射点")]
     public Transform weaponMuzzle;
 
-    [Header("射击参数")]
-    [Tooltip("The type of weapon wil affect how it shoots")]
+    [Header("Shoot parameters")]
+    [Tooltip("武器射击类型：Manual手动|Automatic自动|Charge充能蓄力")]
     public WeaponShootType shootType;
-    [Tooltip("The projectile prefab")]
+    [Tooltip("子弹Prefab")]
     public ProjectileBase projectilePrefab;
     [Tooltip("射击间隔")]
     public float delayBetweenShots = 0.5f;
@@ -49,16 +49,16 @@ public class WeaponController : MonoBehaviour
     public float bulletSpreadAngle = 0f;
     [Tooltip("每次发射子弹数")]
     public int bulletsPerShot = 1;
-    [Tooltip("Force that will push back the weapon after each shot")]
+    [Tooltip("武器后坐力")]
     [Range(0f, 2f)]
     public float recoilForce = 1;
-    [Tooltip("Ratio of the default FOV that this weapon applies while aiming")]
+    [Tooltip("瞄准时默认视野比例")]
     [Range(0f, 1f)]
     public float aimZoomRatio = 1f;
-    [Tooltip("Translation to apply to weapon arm when aiming with this weapon")]
+    [Tooltip("瞄准时武器偏移")]
     public Vector3 aimOffset;
 
-    [Header("弹药参数")]
+    [Header("Ammo parameters")]
     [Tooltip("每秒填充弹药的速度")]
     public float ammoReloadRate = 1f;
     [Tooltip("停止开火x秒后开始恢复发射次数（换弹")]
@@ -66,8 +66,8 @@ public class WeaponController : MonoBehaviour
     [Tooltip("最大弹药数")]
     public float maxAmmo = 8;
 
-    [Header("Charging parameters (charging weapons only)")]
-    [Tooltip("Duration to reach maximum charge")]
+    [Header("Charging parameters (仅作用于充能武器)")]
+    [Tooltip("达到最大充能时间")]
     public float maxChargeDuration = 2f;
     [Tooltip("Initial ammo used when starting to charge")]
     public float ammoUsedOnStartCharge = 1f;
@@ -75,11 +75,11 @@ public class WeaponController : MonoBehaviour
     public float ammoUsageRateWhileCharging = 1f;
 
     [Header("Audio & Visual")]
-    [Tooltip("Prefab of the muzzle flash")]
+    [Tooltip("枪口闪光Prefab")]
     public GameObject muzzleFlashPrefab;
-    [Tooltip("sound played when shooting")]
+    [Tooltip("射击声效")]
     public AudioClip shootSFX;
-    [Tooltip("Sound played when changing to this weapon")]
+    [Tooltip("充能声效")]
     public AudioClip changeWeaponSFX;
 
     float m_CurrentAmmo;

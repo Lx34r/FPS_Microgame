@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PatrolPath : MonoBehaviour
 {
-    [Tooltip("Enemies that will be assigned to this path on Start")]
+    [Tooltip("使用该路径的敌人")]
     public List<EnemyController> enemiesToAssign = new List<EnemyController>();
-    [Tooltip("The Nodes making up the path")]
+    [Tooltip("构成路径的节点")]
     public List<Transform> pathNodes = new List<Transform>();
 
     private void Start()
